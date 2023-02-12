@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "7sK8sjzgCjl61jBD+2cZQ1cHBHZPSbnSNnGBBhTVnUNWW4PVKO7obE2ui6WUCtkXXnLVBLHO4tS4T1TF7b4TIA==",
+  "dgSpecHash": "nS4iQcy2aXFK7sJu2G7qdFWuAFG5lhU0EOw8CM62lJyn8gawNGFzQJf5JPGsbrn94/fKR/mdUeAA+jSeCgucjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\aalti\\Desktop\\EcommerceAPP\\Ecommerce\\Infrastructure\\Ecommerce.Persistence\\Ecommerce.Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\aalti\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
+    "C:\\Users\\aalti\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",
+    "C:\\Users\\aalti\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.4.0\\fluentvalidation.dependencyinjectionextensions.11.4.0.nupkg.sha512",
     "C:\\Users\\aalti\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\aalti\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\aalti\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
