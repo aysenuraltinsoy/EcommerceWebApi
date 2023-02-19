@@ -151,3 +151,6 @@ C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Deb
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\Ecommerce.Infrastructure.dll
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\Ecommerce.Infrastructure.pdb
+C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\MediatR.dll
+C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
