@@ -1,6 +1,11 @@
 ﻿using Ecommerce.Application.Repositories;
+using Ecommerce.Domain.Entities.Identity;
 using Ecommerce.Persistence.Context;
 using Ecommerce.Persistence.Repositories;
+using Ecommerce.Persistence.Repositories.Category;
+using Ecommerce.Persistence.Repositories.Customer;
+using Ecommerce.Persistence.Repositories.Product;
+using Ecommerce.Persistence.Repositories.ShoppingCart;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,6 +23,16 @@ namespace Ecommerce.Persistence
         {
 
             services.AddDbContext<EcommerceDbContext>(_ => _.UseSqlServer(Configuration.ConnectionString)); //Dbcontext default: Scoped
+            services.AddIdentity<AppUser, AppRole>(options =>
+            {
+                options.Password.RequiredLength = 4;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+               
+            }).AddEntityFrameworkStores<EcommerceDbContext>();
+
             services.AddScoped<ICustomerReadRepository,CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository,CustomerWriteRepository>();
             services.AddScoped<IShoppingCartReadRepository,ShoppingCartReadRepository>();
