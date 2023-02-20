@@ -1,4 +1,5 @@
-﻿using Ecommerce.Application.Repositories;
+﻿using Ecommerce.Application.Abstractions.Services;
+using Ecommerce.Application.Repositories;
 using Ecommerce.Domain.Entities.Identity;
 using Ecommerce.Persistence.Context;
 using Ecommerce.Persistence.Repositories;
@@ -6,6 +7,7 @@ using Ecommerce.Persistence.Repositories.Category;
 using Ecommerce.Persistence.Repositories.Customer;
 using Ecommerce.Persistence.Repositories.Product;
 using Ecommerce.Persistence.Repositories.ShoppingCart;
+using Ecommerce.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -41,6 +43,9 @@ namespace Ecommerce.Persistence
             services.AddScoped<IProductWriteRepository,ProductWriteRepository>();
             services.AddScoped<ICategoryReadRepository,CategoryReadRepository>();
             services.AddScoped<ICategoryWriteRepository,CategoryWriteRepository>();
+            services.AddScoped<IAuthService,AuthService>();
+
+            services.AddScoped<IUserService,UserService>();
         }
     }
 }
