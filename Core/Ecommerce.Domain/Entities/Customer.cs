@@ -11,9 +11,9 @@ namespace Ecommerce.Domain.Entities
     public class Customer:BaseEntity
     {
         public string Username { get; set; }
-        public string Password { get; set; }
-        public string Email { get; set; }
-        public Countries Country { get; set; }
-        public ICollection<ShoppingCart> ShoppingCarts { get; set; }
+        //public string Password { get; set; }
+        //public string Email { get; set; }
+        //public Countries Country { get; set; }
+        //public ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }

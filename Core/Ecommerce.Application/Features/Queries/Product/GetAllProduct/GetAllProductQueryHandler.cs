@@ -32,7 +32,7 @@ namespace Ecommerce.Application.Features.Queries.Product.GetAllProduct
             }).ToList();
             return new()
             {
-                TotalCount = totalCount,
+                TotalProductCount = totalCount,
                 Products = products
             };
         }
