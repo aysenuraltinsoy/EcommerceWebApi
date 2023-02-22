@@ -2,8 +2,10 @@
 using Ecommerce.Application.Abstractions.Token;
 using Ecommerce.Application.DTOs;
 using Ecommerce.Application.Exceptions;
+using Ecommerce.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +20,15 @@ namespace Ecommerce.Persistence.Services
         readonly UserManager<Domain.Entities.Identity.AppUser> _userManager;
         readonly SignInManager<Domain.Entities.Identity.AppUser> _signInManager;
         readonly ITokenHandler _tokenHandler;
+        readonly IUserService _userService;
 
-        public AuthService(UserManager<Domain.Entities.Identity.AppUser> userManager, SignInManager<Domain.Entities.Identity.AppUser> signInManager, ITokenHandler tokenHandler)
+        public AuthService(UserManager<Domain.Entities.Identity.AppUser> userManager, SignInManager<Domain.Entities.Identity.AppUser> signInManager, ITokenHandler tokenHandler, IUserService userService)
         {
-           
+
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenHandler = tokenHandler;
+            _userService = userService;
         }
 
         public async Task<Token> LoginAsync(string usernameOrEmail, string password,int accessTokenLifeTime)
@@ -43,10 +47,24 @@ namespace Ecommerce.Persistence.Services
             if (result.Succeeded) //Authentication successful
             {
                 Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+                await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
                 return token;
             }
 
            throw new Exception();
+        }
+
+        public async Task<Token> RefreshTokenLoginAsync(string refreshToken)
+        {
+            AppUser? user   =await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
+
+            if (user != null && user?.RefreshTokenEndDate>DateTime.Now)
+            {
+                Token token=_tokenHandler.CreateAccessToken(5);
+                await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
+                return token;
+            }
+            throw new NotFoundUserException();
         }
     }
 }

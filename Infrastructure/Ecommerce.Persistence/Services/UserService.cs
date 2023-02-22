@@ -1,6 +1,8 @@
 ﻿using Ecommerce.Application.Abstractions.Services;
 using Ecommerce.Application.DTOs.User;
+using Ecommerce.Application.Exceptions;
 using Ecommerce.Application.Features.Commands.AppUser.CreateUser;
+using Ecommerce.Domain.Entities.Identity;
 using Ecommerce.Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -55,7 +57,19 @@ namespace Ecommerce.Persistence.Services
 
             throw new ArgumentException($"Invalid country code: {code}");
         }
-    }
 
+        public async Task UpdateRefreshToken(string refreshToken, AppUser user, DateTime accessTokenDate,int addOnAccessTokenDate)
+        {
+            if (user != null)
+            {
+                user.RefreshToken = refreshToken;
+                user.RefreshTokenEndDate = accessTokenDate.AddSeconds(addOnAccessTokenDate);
+                await _userManager.UpdateAsync(user);
+            }
+            else
+                throw new NotFoundUserException();
+        }
+        
+    }
 
 }

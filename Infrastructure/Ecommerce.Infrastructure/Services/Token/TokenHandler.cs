@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +35,19 @@ namespace Ecommerce.Infrastructure.Services.Token
                 signingCredentials: signingCredentials);
             JwtSecurityTokenHandler tokenHandler = new();
             token.AccessToken=   tokenHandler.WriteToken(securityToken);
+
+             token.RefreshToken = CreateRefreshToken();
             return token;
+        }
+
+        public string CreateRefreshToken()
+        {
+            byte[] number = new byte[32];
+            //When using the using block, the object is created and the object is disposed as soon as the block is finished --> old version
+            //When using in this way, the object is used until the relevant scope is finished, then it is disposed
+            using RandomNumberGenerator random = RandomNumberGenerator.Create();
+            random.GetBytes(number);
+            return Convert.ToBase64String(number);
         }
     }
 }
