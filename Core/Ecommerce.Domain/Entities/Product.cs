@@ -13,6 +13,8 @@ namespace Ecommerce.Domain.Entities
         public string Description { get; set; }
         public float Price { get; set; }
         public int Stock { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
         public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
 
         public ICollection<Category> Categories { get; set; }

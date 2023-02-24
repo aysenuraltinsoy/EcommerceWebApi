@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Persistence.Repositories.ShoppingCart
 {
-    public class ShoppingCartWriteRepository : WriteRepository<Ecommerce.Domain.Entities.ShoppingCart>, IShoppingWriteReadRepository
+    public class ShoppingCartWriteRepository : WriteRepository<Ecommerce.Domain.Entities.ShoppingCart>, IShoppingCartWriteRepository
     {
         public ShoppingCartWriteRepository(EcommerceDbContext context) : base(context)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Ecommerce.Application.Repositories
 {
-    public interface IShoppingWriteReadRepository:IWriteRepository<ShoppingCart>
+    public interface IShoppingCartWriteRepository:IWriteRepository<ShoppingCart>
     {
     }
 }

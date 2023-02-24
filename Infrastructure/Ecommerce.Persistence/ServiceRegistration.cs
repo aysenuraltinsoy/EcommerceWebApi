@@ -1,12 +1,16 @@
 ﻿using Ecommerce.Application.Abstractions.Services;
 using Ecommerce.Application.Repositories;
+using Ecommerce.Application.Repositories.Order;
+using Ecommerce.Application.Repositories.ShoppingCartItem;
 using Ecommerce.Domain.Entities.Identity;
 using Ecommerce.Persistence.Context;
 using Ecommerce.Persistence.Repositories;
 using Ecommerce.Persistence.Repositories.Category;
 using Ecommerce.Persistence.Repositories.Customer;
+using Ecommerce.Persistence.Repositories.Order;
 using Ecommerce.Persistence.Repositories.Product;
 using Ecommerce.Persistence.Repositories.ShoppingCart;
+using Ecommerce.Persistence.Repositories.ShoppingCartItem;
 using Ecommerce.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,14 +42,22 @@ namespace Ecommerce.Persistence
             services.AddScoped<ICustomerReadRepository,CustomerReadRepository>();
             services.AddScoped<ICustomerWriteRepository,CustomerWriteRepository>();
             services.AddScoped<IShoppingCartReadRepository,ShoppingCartReadRepository>();
-            services.AddScoped<IShoppingWriteReadRepository,ShoppingCartWriteRepository>();
+            services.AddScoped<IShoppingCartWriteRepository, ShoppingCartWriteRepository>();
             services.AddScoped<IProductReadRepository,ProductReadRepository>();
             services.AddScoped<IProductWriteRepository,ProductWriteRepository>();
             services.AddScoped<ICategoryReadRepository,CategoryReadRepository>();
             services.AddScoped<ICategoryWriteRepository,CategoryWriteRepository>();
-            services.AddScoped<IAuthService,AuthService>();
+            services.AddScoped<IOrderReadRepository,OrderReadRepository>();
+            services.AddScoped<IOrderWriteRepository,OrderWriteRepository>();
+            
+            services.AddScoped<IShoppingCartItemReadRepository,ShoppingCartItemReadRepository>();
+            services.AddScoped<IShoppingCartItemWriteRepository, ShoppingCartItemWriteRepository>();
 
+
+
+            services.AddScoped<IAuthService,AuthService>();
             services.AddScoped<IUserService,UserService>();
+            services.AddScoped<IShoppingCartService,ShoppingCartService>(); 
         }
     }
 }

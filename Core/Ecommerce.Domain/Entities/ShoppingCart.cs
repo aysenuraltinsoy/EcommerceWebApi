@@ -12,11 +12,12 @@ namespace Ecommerce.Domain.Entities
     {
         
         
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
+     
         public AppUser User { get; set; }
         public ICollection<ShoppingCartItem> ShoppingCartItems { get; set; }
         public Order Order { get; set; }
-        public ICollection<Product> Products { get; set; }
+        //public ICollection<Product> Products { get; set; }
         
 
 
