@@ -22,6 +22,7 @@ namespace Ecommerce.Application.Features.Commands.ShoppingCart.AddItemToShopping
                 ProductId= request.ProductId,
                 Quantity= request.Quantity
             });
+            return new();
         }
     }
 }

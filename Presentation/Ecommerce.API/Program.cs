@@ -6,6 +6,7 @@ using Ecommerce.Persistence;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,7 +17,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices();
 
 //The service that enables the HttpContext object created as a result of the request from the client to be accessed through the classes in the layers (business logic).
-builder.Services.AddHttpContextAccessor(); 
+builder.Services.AddHttpContextAccessor();
 
 
 //Browser-based structuring the cors policy used for security in requests
@@ -44,7 +45,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidAudience = builder.Configuration["Token:Audience"],
         ValidIssuer = builder.Configuration["Token:Issuer"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
-        LifetimeValidator =( notBefore, expires, securityToken, validationParameters) => expires !=null ? expires>DateTime.UtcNow: false  //It makes the JWT work second to second for its lifetime.
+        LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires != null ? expires > DateTime.UtcNow : false,  //It makes the JWT work second to second for its lifetime.
+
+        NameClaimType = ClaimTypes.Name
     };
 });
 

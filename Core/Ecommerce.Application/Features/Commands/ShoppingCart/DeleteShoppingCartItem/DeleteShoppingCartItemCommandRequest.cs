@@ -4,5 +4,6 @@ namespace Ecommerce.Application.Features.Commands.ShoppingCart.DeleteShoppingCar
 {
     public class DeleteShoppingCartItemCommandRequest:IRequest<DeleteShoppingCartItemCommandResponse>
     {
+        public string ShoppingCartItemId { get; set; }
     }
 }

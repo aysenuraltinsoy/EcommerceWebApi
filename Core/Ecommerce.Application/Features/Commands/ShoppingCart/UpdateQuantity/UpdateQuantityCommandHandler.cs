@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ecommerce.Application.Abstractions.Services;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,20 @@ namespace Ecommerce.Application.Features.Commands.ShoppingCart.UpdateQuantity
 {
     public class UpdateQuantityCommandHandler : IRequestHandler<UpdateQuantityCommandRequest, UpdateQuantityCommandResponse>
     {
-        public Task<UpdateQuantityCommandResponse> Handle(UpdateQuantityCommandRequest request, CancellationToken cancellationToken)
+        readonly IShoppingCartService _shoppingCartService;
+        public UpdateQuantityCommandHandler(IShoppingCartService shoppingCartService)
         {
-            throw new NotImplementedException();
+            _shoppingCartService = shoppingCartService;
+        }
+        public async Task<UpdateQuantityCommandResponse> Handle(UpdateQuantityCommandRequest request, CancellationToken cancellationToken)
+        {
+            await _shoppingCartService.UpdateQuantityAsync(new()
+            {
+                ShoppingCartItemId = request.ShoppingCartItemId,
+                Quantity = request.Quantity
+            });
+
+            return new();
         }
     }
 }

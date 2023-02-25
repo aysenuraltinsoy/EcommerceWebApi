@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ecommerce.Domain.Entities.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Ecommerce.Application.Abstractions.Token
 {
     public interface ITokenHandler
     {
-        DTOs.Token CreateAccessToken(int minute);
+        DTOs.Token CreateAccessToken(int minute, AppUser appUser);
         string CreateRefreshToken();
     }
 }

@@ -8,7 +8,7 @@ namespace Ecommerce.Application.ViewModels.ShoppingCart
 {
     public class UpdateShoppingCartItemVM
     {
-        public string BasketItemId { get; set; }
+        public string ShoppingCartItemId { get; set; }
         public int Quantity { get; set; }   
     }
 }

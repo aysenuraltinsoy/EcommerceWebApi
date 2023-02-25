@@ -58,7 +58,7 @@ namespace Ecommerce.Persistence.Services
             throw new ArgumentException($"Invalid country code: {code}");
         }
 
-        public async Task UpdateRefreshToken(string refreshToken, AppUser user, DateTime accessTokenDate,int addOnAccessTokenDate)
+        public async Task UpdateRefreshTokenAsync(string refreshToken, AppUser user, DateTime accessTokenDate,int addOnAccessTokenDate)
         {
             if (user != null)
             {

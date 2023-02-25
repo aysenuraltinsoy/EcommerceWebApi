@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ecommerce.Application.Abstractions.Services;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,16 @@ namespace Ecommerce.Application.Features.Commands.ShoppingCart.DeleteShoppingCar
 {
     public class DeleteShoppingCartItemCommandHandler : IRequestHandler<DeleteShoppingCartItemCommandRequest, DeleteShoppingCartItemCommandResponse>
     {
-        public Task<DeleteShoppingCartItemCommandResponse> Handle(DeleteShoppingCartItemCommandRequest request, CancellationToken cancellationToken)
+        readonly IShoppingCartService _shoppingCartService;
+
+        public DeleteShoppingCartItemCommandHandler(IShoppingCartService shoppingCartService)
         {
-            throw new NotImplementedException();
+            _shoppingCartService = shoppingCartService;
+        }
+        public async Task<DeleteShoppingCartItemCommandResponse> Handle(DeleteShoppingCartItemCommandRequest request, CancellationToken cancellationToken)
+        {
+            await _shoppingCartService.DeleteItemAsync(request.ShoppingCartItemId);
+                return new();
         }
     }
 }

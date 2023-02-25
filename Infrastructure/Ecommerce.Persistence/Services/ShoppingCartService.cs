@@ -38,7 +38,9 @@ namespace Ecommerce.Persistence.Services
 
         private async Task<ShoppingCart?> ContextUser()
         {
+            var session = _httpContextAccessor.HttpContext;
             var username = _httpContextAccessor?.HttpContext?.User.Identity?.Name;
+            var deneme = _httpContextAccessor.HttpContext.User.Claims;
             if (!string.IsNullOrEmpty(username))
             {
                 AppUser? user = await _userManager.Users.Include(u => u.ShoppingCarts).FirstOrDefaultAsync(u => u.UserName == username);
@@ -112,7 +114,7 @@ namespace Ecommerce.Persistence.Services
 
         public async Task UpdateQuantityAsync(UpdateShoppingCartItemVM shoppingCartItem)
         {
-            ShoppingCartItem? updatedShoppingCartItem = await _shoppingCartItemReadRepository.GetByIdAsync(shoppingCartItem.BasketItemId);
+            ShoppingCartItem? updatedShoppingCartItem = await _shoppingCartItemReadRepository.GetByIdAsync(shoppingCartItem.ShoppingCartItemId);
             if (updatedShoppingCartItem != null)
             {
                 updatedShoppingCartItem.Quantity = shoppingCartItem.Quantity;
