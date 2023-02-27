@@ -14,5 +14,6 @@ namespace Ecommerce.Application.Abstractions.Services
         public Task AddItemToShoppingCartAsync(CreateShoppingCartItemVM shoppingCartItem);
         public Task UpdateQuantityAsync(UpdateShoppingCartItemVM shoppingCartItem);
         public Task DeleteItemAsync(string shoppingCartItemId);
+        public ShoppingCart? GetUserActiveShoppingCart { get; }
     }
 }

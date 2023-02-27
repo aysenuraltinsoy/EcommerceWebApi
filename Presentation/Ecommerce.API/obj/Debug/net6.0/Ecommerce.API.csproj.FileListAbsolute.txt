@@ -143,7 +143,6 @@ C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Deb
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\Ecommerce.API.AssemblyInfoInputs.cache
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\Ecommerce.API.AssemblyInfo.cs
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\Ecommerce.API.csproj.CoreCompileInputs.cache
-C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\Ecommerce.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\Ecommerce.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\staticwebassets\msbuild.Ecommerce.API.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\aalti\Desktop\EcommerceAPP\Ecommerce\Presentation\Ecommerce.API\obj\Debug\net6.0\staticwebassets\msbuild.build.Ecommerce.API.props

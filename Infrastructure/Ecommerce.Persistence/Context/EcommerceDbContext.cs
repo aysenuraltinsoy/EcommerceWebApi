@@ -33,7 +33,11 @@ namespace Ecommerce.Persistence.Context
             builder.Entity<Order>().HasKey(b => b.Id);
             builder.Entity<ShoppingCart>().HasOne(b => b.Order)
                 .WithOne(o => o.ShoppingCart).HasForeignKey<Order>(b => b.Id);
-            //In cases where we use the Identity library, the following piece of code should be included in this method.
+
+            builder.Entity<Order>()
+                .HasIndex(o => o.OrderCode)
+                .IsUnique();
+        //In cases where we use the Identity library, the following piece of code should be included in this method.
             base.OnModelCreating(builder);
         }
 

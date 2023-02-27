@@ -121,5 +121,15 @@ namespace Ecommerce.Persistence.Services
                await _shoppingCartItemWriteRepository.SaveAsync();
             }
         }
+
+        public ShoppingCart? GetUserActiveShoppingCart
+        {
+           get 
+           {
+                ShoppingCart? shoppingCart = ContextUser().Result;
+                return shoppingCart;
+
+            }
+        }
     }
 }
