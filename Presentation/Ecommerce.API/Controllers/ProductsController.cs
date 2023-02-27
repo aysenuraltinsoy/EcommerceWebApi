@@ -1,4 +1,7 @@
-﻿using Ecommerce.Application.Features.Commands.Product.CreateProduct;
+﻿using Ecommerce.Application.Consts;
+using Ecommerce.Application.CustomAttributes;
+using Ecommerce.Application.Enums;
+using Ecommerce.Application.Features.Commands.Product.CreateProduct;
 using Ecommerce.Application.Features.Commands.Product.DeleteProduct;
 using Ecommerce.Application.Features.Commands.Product.UpdateProduct;
 using Ecommerce.Application.Features.Queries.Product.GetAllProduct;
@@ -19,13 +22,11 @@ namespace Ecommerce.API.Controllers
     [ApiController]
     
     public class ProductsController : ControllerBase
-    {
-       
+    {   
         readonly IMediator _mediator;
 
         public ProductsController(IMediator mediator)
-        {
-         
+        {       
             _mediator = mediator;
         }
         [HttpGet]
@@ -33,7 +34,6 @@ namespace Ecommerce.API.Controllers
         {
             GetAllProductQueryResponse response=  await _mediator.Send(getAllProductQueryRequest);
             return Ok(response);
-
         }
 
         [HttpGet("{Id}")]
@@ -45,15 +45,16 @@ namespace Ecommerce.API.Controllers
 
         [HttpPost]
         [Authorize(AuthenticationSchemes = "Admin")]
+        [AuthorizeDefinition(Menu = AuthorizeDefinitionConstants.Products, ActionType = Application.Enums.ActionType.Writing, Definition = "Create Product")]
         public async Task<IActionResult> Post(CreateProductCommandRequest createProductCommandRequest)
         {
-            CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);
-          
+            CreateProductCommandResponse response = await _mediator.Send(createProductCommandRequest);         
             return StatusCode((int)HttpStatusCode.Created);
         }
 
         [HttpPut]
         [Authorize(AuthenticationSchemes = "Admin")]
+        [AuthorizeDefinition(Menu = AuthorizeDefinitionConstants.Products, ActionType = Application.Enums.ActionType.Updating, Definition = "Update Product")]
         public async Task<IActionResult> Put([FromBody] UpdateProductCommandRequest updateProductCommandRequest)
         {
             UpdateProductCommandResponse response  =await _mediator.Send(updateProductCommandRequest);
@@ -62,6 +63,7 @@ namespace Ecommerce.API.Controllers
 
         [HttpDelete("{Id}")]
         [Authorize(AuthenticationSchemes = "Admin")]
+        [AuthorizeDefinition(Menu = AuthorizeDefinitionConstants.Products, ActionType = Application.Enums.ActionType.Deleting, Definition = "Remove Product")]
         public async Task<IActionResult> Delete([FromRoute] DeleteProductCommandRequest deleteProductCommandRequest)
         {
            DeleteProductCommandResponse response  = await _mediator.Send(deleteProductCommandRequest);

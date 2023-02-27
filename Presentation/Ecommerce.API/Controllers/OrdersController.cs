@@ -1,4 +1,7 @@
-﻿using Ecommerce.Application.Features.Commands.Order.CreateOrder;
+﻿using Ecommerce.Application.Consts;
+using Ecommerce.Application.CustomAttributes;
+using Ecommerce.Application.Enums;
+using Ecommerce.Application.Features.Commands.Order.CreateOrder;
 using Ecommerce.Application.Features.Queries.Order;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -18,6 +21,7 @@ namespace Ecommerce.API.Controllers
             _mediator = mediator;
         }
         [HttpPost]
+        [AuthorizeDefinition(Menu = AuthorizeDefinitionConstants.ShoppingCarts, ActionType = Application.Enums.ActionType.Writing, Definition = "Create Order")]
         public async Task<IActionResult> CreateOrder(CreateOrderCommandRequest createOrderCommandRequest)
         {
             CreateOrderCommandResponse response = await _mediator.Send(createOrderCommandRequest);
@@ -25,6 +29,7 @@ namespace Ecommerce.API.Controllers
         }
 
         [HttpGet]
+        [AuthorizeDefinition(Menu = AuthorizeDefinitionConstants.Orders, ActionType = Application.Enums.ActionType.Reading, Definition = "Get All Orders")]
         public async Task<IActionResult> GetAllOrders([FromQuery] GetAllOrdersQueryRequest getAllOrdersQueryRequest)
         {
             GetAllOrdersQueryResponse response = await _mediator.Send(getAllOrdersQueryRequest);

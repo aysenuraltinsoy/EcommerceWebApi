@@ -59,6 +59,7 @@ namespace Ecommerce.Persistence
             services.AddScoped<IUserService,UserService>();
             services.AddScoped<IShoppingCartService,ShoppingCartService>(); 
             services.AddScoped<IOrderService,OrderService>(); 
+            services.AddScoped<IRoleService,RoleService>(); 
         }
     }
 }
