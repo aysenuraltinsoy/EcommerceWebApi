@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Application.Repositories
+namespace Ecommerce.Application.Repositories.Menu
 {
-    public interface ICustomerReadRepository:IReadRepository<Customer>
-    {
-    }
+	public interface IMenuReadRepository:IReadRepository<Ecommerce.Domain.Entities.Menu>
+	{
+	}
 }

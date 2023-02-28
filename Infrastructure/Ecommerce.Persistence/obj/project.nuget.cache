@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TjbzZ9i3CYOMUIsTU6rE7GObWPTpLTCI8U+ps9KuHwfd/GPXy3/EgNcB9FIySOfbunHRyhEJoMBQUxMfn+nf5A==",
+  "dgSpecHash": "sLYF7UEz6YX3dd8AdzM4gAkOYjRdt/fUdGtsaGXGfTqizdx+cXGs+126FjuhoKKUSs4nOSXuWaZ46l8efm3MwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aalti\\Desktop\\EcommerceAPP\\Ecommerce\\Infrastructure\\Ecommerce.Persistence\\Ecommerce.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\aalti\\source\\repos\\EcommerceWebApi\\Infrastructure\\Ecommerce.Persistence\\Ecommerce.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aalti\\.nuget\\packages\\fluentvalidation\\11.4.0\\fluentvalidation.11.4.0.nupkg.sha512",
     "C:\\Users\\aalti\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.2.2\\fluentvalidation.aspnetcore.11.2.2.nupkg.sha512",

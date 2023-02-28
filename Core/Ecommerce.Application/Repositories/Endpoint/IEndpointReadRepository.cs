@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ecommerce.Application.Repositories
+namespace Ecommerce.Application.Repositories.Endpoint
 {
-    public interface ICustomerWriteRepository:IWriteRepository<Customer>
-    {
-    }
+	public interface IEndpointReadRepository:IReadRepository<Ecommerce.Domain.Entities.Endpoint>
+	{
+	}
 }

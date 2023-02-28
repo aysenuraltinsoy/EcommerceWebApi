@@ -21,7 +21,7 @@ builder.Services.AddHttpContextAccessor();
 
 
 //Browser-based structuring the cors policy used for security in requests
-builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod())); //client localhost eklenecek!
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod())); 
 
 
 //fluentvalidation library and validators added

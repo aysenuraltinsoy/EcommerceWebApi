@@ -1,12 +1,15 @@
 ﻿using Ecommerce.Application.Abstractions.Services;
 using Ecommerce.Application.Repositories;
+using Ecommerce.Application.Repositories.Endpoint;
+using Ecommerce.Application.Repositories.Menu;
 using Ecommerce.Application.Repositories.Order;
 using Ecommerce.Application.Repositories.ShoppingCartItem;
 using Ecommerce.Domain.Entities.Identity;
 using Ecommerce.Persistence.Context;
 using Ecommerce.Persistence.Repositories;
 using Ecommerce.Persistence.Repositories.Category;
-using Ecommerce.Persistence.Repositories.Customer;
+using Ecommerce.Persistence.Repositories.Endpoint;
+using Ecommerce.Persistence.Repositories.Menu;
 using Ecommerce.Persistence.Repositories.Order;
 using Ecommerce.Persistence.Repositories.Product;
 using Ecommerce.Persistence.Repositories.ShoppingCart;
@@ -39,8 +42,7 @@ namespace Ecommerce.Persistence
                
             }).AddEntityFrameworkStores<EcommerceDbContext>();
 
-            services.AddScoped<ICustomerReadRepository,CustomerReadRepository>();
-            services.AddScoped<ICustomerWriteRepository,CustomerWriteRepository>();
+         
             services.AddScoped<IShoppingCartReadRepository,ShoppingCartReadRepository>();
             services.AddScoped<IShoppingCartWriteRepository, ShoppingCartWriteRepository>();
             services.AddScoped<IProductReadRepository,ProductReadRepository>();
@@ -60,6 +62,13 @@ namespace Ecommerce.Persistence
             services.AddScoped<IShoppingCartService,ShoppingCartService>(); 
             services.AddScoped<IOrderService,OrderService>(); 
             services.AddScoped<IRoleService,RoleService>(); 
+            services.AddScoped<IAuthorizationEndPointService,AuthorizationEndPointService>(); 
+
+            services.AddScoped<IMenuReadRepository,MenuReadRepository>(); 
+            services.AddScoped<IMenuWriteRepository,MenuWriteRepository>(); 
+            services.AddScoped<IEndpointWriteRepository,EndpointWriteRepository>(); 
+            services.AddScoped<IEndpointReadRepository,EndpointReadRepository>(); 
+           
         }
     }
 }
