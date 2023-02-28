@@ -7,3 +7,8 @@ Program.cs dosyasında yer alan client adresine dikkat edilmelidir.<br>
 JWT Token yapılanması uygulanmıştır. <br>
 Identity kütüphanesi aracılığıyla rol tabanlı yetkilendirme yapılmıştır.<br>
 CQRS ve generic repository design patternleri beraber kullanılmıştır.<br>
+
+
+Angular kısmında:
+app.module.ts içerisinde yer alan localhost kısımlarına dikkat edilmelidir.
+![image](https://user-images.githubusercontent.com/104261402/221842078-677c7529-b4fe-409b-b2ff-c213ace82fa7.png)
